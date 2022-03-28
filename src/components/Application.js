@@ -28,7 +28,27 @@ export default function Application(props) {
     ]).then((all) => {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
     });
-  }, [])
+  }, []);
+
+  axios.get('/api/debug/reset')
+
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      setState((state) => {
+        const appointments = {
+          ...state.appointments,
+          [id]: appointment,
+        };
+
+        return { ...state, appointments };
+      });
+    });
+  }
 
   return (
     <main className="layout">
@@ -61,6 +81,7 @@ export default function Application(props) {
             time={appointment.time}
             interview={interview}
             interviewers={interviewers}
+            bookInterview={bookInterview}
           />);
         })}
         <Appointment key="last" time="5pm" />
