@@ -34,12 +34,8 @@ export function getInterviewersForDay(state, day) {
   const returnArray = []
   for (const each of state.days) {
     if (each.name === day) {
-      for (const appointment of each.appointments) {
-        if (state.appointments[appointment].interview) {
-          if (!returnArray.includes(state.interviewers[state.appointments[appointment].interview.interviewer])) {
-            returnArray.push(state.interviewers[state.appointments[appointment].interview.interviewer]);
-          }
-        }
+      for (const eachInterviewer of each.interviewers) {
+        returnArray.push(state.interviewers[eachInterviewer]);
       }
     }
   }

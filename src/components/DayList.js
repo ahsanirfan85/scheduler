@@ -11,6 +11,7 @@ export default function DayList(props) {
         spots={dayOfTheWeek.spots} 
         selected={dayOfTheWeek.name === props.value}
         setDay={props.onChange}
+        data-testid="day"
       />
     )
   })

@@ -30,6 +30,8 @@ export default function Appointment(props) {
       interviewer
     };
 
+    console.log(interview);
+
     transition(SAVING);
 
     props
