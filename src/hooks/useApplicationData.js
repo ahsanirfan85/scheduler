@@ -22,6 +22,9 @@ export default function useApplicationData() {
         appointments: all[1].data,
         interviewers: all[2].data
       }));
+      console.log(all[0].data);
+      console.log(all[1].data);
+      console.log(all[2].data);
     });
   }, []);
 
