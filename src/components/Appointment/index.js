@@ -30,8 +30,6 @@ export default function Appointment(props) {
       interviewer
     };
 
-    console.log(interview);
-
     transition(SAVING);
 
     props
@@ -63,7 +61,7 @@ export default function Appointment(props) {
     {mode === CREATE && (
       <Form
         interviewers={props.interviewers}
-        onCancel={() => {back()}}
+        onCancel={back}
         onSave={save}
       />
     )}
@@ -76,7 +74,7 @@ export default function Appointment(props) {
     {mode === CONFIRM && (
       <Confirm
         message={`Are you sure you would like to delete?`}
-        onCancel={() => back()}
+        onCancel={back}
         onConfirm={destroy}
       />
     )}
@@ -85,20 +83,20 @@ export default function Appointment(props) {
         interviewers={props.interviewers}
         student={props.interview.student}
         interviewer={props.interview.interviewer.id}
-        onCancel={() => {back()}}
+        onCancel={back}
         onSave={save}
       />
     )}
     {mode === ERROR_DELETE && (
       <Error
         message={`Could not cancel appointment`}
-        onClose={() => back()}
+        onClose={back}
       />
     )}
     {mode === ERROR_SAVE && (
       <Error
         message={`Could not save appointment`}
-        onClose={() => back()}
+        onClose={back}
       />
     )}
   </article>);

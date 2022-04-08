@@ -12,8 +12,6 @@ export default function Application(props) {
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day);  
 
-  axios.get('/api/debug/reset') // DELETE THIS WHEN APP IS DONE
-
   return (
     <main className="layout">
       <section className="sidebar">

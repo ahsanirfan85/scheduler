@@ -28,7 +28,31 @@ Clicking on the edit button will allow you to change your information.
 
 ## Setup
 
-Install dependencies with `npm install`.
+Install dependencies with `npm install`. The following dependencies will be installed:
+- axios v0.26.1
+- classnames v2.2.6
+- normalize.css 8.0.1
+- React v16.9.0
+- React DOM v16.9.0
+- React Scripts v3.0.0
+
+For testing, install dev dependencies with `npm install --only=dev`. The following dev dependencies will be installed:
+- @babel/core v^7.4.3
+- @storybook/addon-actions v5.0.10
+- @storybook/addon-backgrounds v5.0.10
+- @storybook/addon-links v5.0.10
+- @storybook/addons v5.0.10
+- @storybook/react v5.0.10
+- @testing-library/jest-dom v4.0.0
+- @testing-library/react v8.0.7
+- @testing-library/react-hooks v7.0.2
+- babel-loader v8.0.5
+- node-sass v4.14.0
+- prop-types v15.8.1
+- react-hooks-testing-library v0.6.0
+- react-test-renderer v16.9.0
+
+This app requires the use of an API that allows the app to connect to a database. To install and setup this API, please visit [https://github.com/ahsanirfan85/scheduler-api](https://github.com/ahsanirfan85/scheduler-api)
 
 ## Running Webpack Development Server
 
