@@ -3,9 +3,11 @@ import "components/InterviewerList.scss"
 import InterviewerListItem from "components/InterviewerListItem"
 import PropTypes from 'prop-types';
 
+// function that lists the names of interviewers when a user clicks on an empty appointment block
 function InterviewerList(props) {
   const interviewers = props.interviewers.map((interviewer) => {
     return (
+      // calling the function that displays each interviewer in the interviewer list
       <InterviewerListItem
         key={interviewer.id}
         name={interviewer.name}

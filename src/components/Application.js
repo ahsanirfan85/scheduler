@@ -2,14 +2,15 @@ import "components/Application.scss";
 import DayList from "components/DayList";
 import React from "react";
 import Appointment from "components/Appointment/index.js";
-import axios from "axios";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
 export default function Application(props) {
   const {state, setDay, bookInterview, cancelInterview} = useApplicationData();
 
+  // gets the appointments for the day based on the day selected by the user
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+  // gets the interviewers available for the day based on the day selected by the user
   const interviewers = getInterviewersForDay(state, state.day);  
 
   return (
@@ -22,6 +23,7 @@ export default function Application(props) {
       />
       <hr className="sidebar__separator sidebar--centered" />
       <nav className="sidebar__menu">
+        {/* Displays the entire list of days on the page, also allows user to select a particular day*/}
         <DayList
           days={state.days}
           value={state.day}
@@ -35,6 +37,7 @@ export default function Application(props) {
       />
       </section>
       <section className="schedule">
+        {/* Displays all the appointments for the selected day*/}
         {dailyAppointments.map((appointment) => {
           const interview = getInterview(state, appointment.interview);
           return (<Appointment 

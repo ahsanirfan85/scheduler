@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import "components/DayListItem.scss";
 
+// function that displays a single day in the list of days on the page
 export default function DayListItem(props) {
   let dayClass = classNames("day-list__item", {" day-list__item--selected": props.selected, " day-list__item--full": (!props.spots)});
   

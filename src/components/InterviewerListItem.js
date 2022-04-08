@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import "components/InterviewerListItem.scss";
 
+// function that displays a single interviewer in the interviewer list when a user selects and empty appoointment block
 export default function InterviewerListItem(props) {
   let interviewerClass = classNames("interviewers__item",{" interviewers__item--selected": props.selected});
   return (
