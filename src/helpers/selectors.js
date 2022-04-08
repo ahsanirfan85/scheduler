@@ -1,9 +1,18 @@
 // function that takes the current 'state' and the user's selected 'day' and returns the appointments for that day
 export function getAppointmentsForDay(state, day) {
   const returnArray = []
+  let tempArray = []
   for (const each of state.days) {
     if (each.name === day) {
       for (const appointment of each.appointments) {
+        tempArray.push(appointment);
+      }
+    }
+  }
+
+  for (const appointment in state.appointments) {
+    for (const each of tempArray) {
+      if (state.appointments[appointment].id === each) {
         returnArray.push(state.appointments[appointment]);
       }
     }
@@ -35,10 +44,19 @@ export function getInterview(state, interview) {
 // function to allow user to see all the interviews for the day when they select a day
 export function getInterviewersForDay(state, day) {
   const returnArray = []
+  let tempArray = []
   for (const each of state.days) {
     if (each.name === day) {
-      for (const eachInterviewer of each.interviewers) {
-        returnArray.push(state.interviewers[eachInterviewer]);
+      for (const interviewer of each.interviewers) {
+        tempArray.push(interviewer);
+      }
+    }
+  }
+
+  for (const interviewer in state.interviewers) {
+    for (const each of tempArray) {
+      if (state.interviewers[interviewer].id === each) {
+        returnArray.push(state.interviewers[interviewer]);
       }
     }
   }

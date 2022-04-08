@@ -44,6 +44,7 @@ const state = {
   }
 };
 
+// Testing getAppointmentsForDay function
 test("getAppointmentsForDay returns an array", () => {
   const result = getAppointmentsForDay(state, "Monday");
   expect(Array.isArray(result)).toBe(true);
@@ -70,6 +71,7 @@ test("getAppointmentsForDay returns an empty array when the day is not found", (
   expect(result.length).toEqual(0);
 });
 
+// Testing getInterview function
 test("getInterview returns an object with the interviewer data", () => {
   const result = getInterview(state, state.appointments["3"].interview);
   expect(result).toEqual(
@@ -89,25 +91,25 @@ test("getInterview returns null if no interview is booked", () => {
   expect(result).toBeNull();
 });
 
-//---
-
+// Testing getInterviewersForDay function - All the tests in this section are exactly the same as for the getAppointmentsForDay function except the third test below
 test("getInterviewersForDay returns an array", () => {
   const result = getInterviewersForDay(state, "Monday");
   expect(Array.isArray(result)).toBe(true);
 });
 
-test("getInterviewersForDay returns an array with a length matching the number of interviewers for that day", () => {
+test("getInterviewersForDay returns an array with a length matching the number of appointments for that day", () => {
   const result = getInterviewersForDay(state, "Monday");
   expect(result.length).toEqual(2);
 });
 
-test("getInterviewersForDay returns an array containing the correct interviewer objects", () => {
+test("getInterviewersForDay returns an array containing the correct appointment objects", () => {
   const [first, second] = getInterviewersForDay(state, "Tuesday");
   expect(first).toEqual(state.interviewers["1"]);
+  expect(second).toEqual(state.interviewers["2"]);
 });
 
 test("getInterviewersForDay returns an empty array when the days data is empty", () => {
-  const result = getInterviewersForDay({  days: [] }, "Monday");
+  const result = getInterviewersForDay({ days: [] }, "Monday");
   expect(result.length).toEqual(0);
 });
 
